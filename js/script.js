@@ -75,11 +75,9 @@ function addPagination(list) {
      </li>    
      `;
 	}
-
 	linkList.insertAdjacentHTML("beforeend", buttonHTML);
 
-	const button = document.querySelectorAll("button[type='button']");
-	button[0].className = "active";
+	document.querySelector('button').className = 'active';
 
 	linkList.addEventListener("click", (e) => {
 		const buttonClicked = e.target;
