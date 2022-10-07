@@ -2,7 +2,7 @@
 Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
 */
-
+// console.log(data);
 
 
 /*
@@ -23,7 +23,8 @@ Function 'showPage will create the html elements needed to display the page with
 //  'page' for page number 
 //  - both passed as an arugument when the function is called
 function showPage(list, page) {
-
+	// console.log(list); 
+	// console.log(page)
 
 	//Two variables which will display start and end index of student data 
 	const startIndex = (page * 9) - 9;
@@ -61,14 +62,15 @@ This function will create and insert/append the elements needed for the paginati
 
 function addPagination(list) {
 	// variable to store the value of the number of pagination buttons needed
-	const numOfPages = Math.ceil(list.length / 9);
+	numberOfPages = Math.ceil(list.length / 9);
 
 	const linkList = document.querySelector(".link-list");
+
 	//the list is set to am empty string to remove data if present
 	linkList.innerHTML = "";
 	let buttonHTML = "";
 
-	for (let i = 1; i <= numOfPages; i++) {
+	for (let i = 1; i <= numberOfPages; i++) {
 		buttonHTML += `
      <li>
        <button type="button">${i}</button>
@@ -90,6 +92,22 @@ function addPagination(list) {
 	});
 }
 
+
 // Call functions
 showPage(data, 1);
 addPagination(data);
+
+
+let searchBar = document.createElement('div');
+searchBar.innerHTML = `
+      <label for="search" class="student-search">
+      <span>Search by name</span>
+      <input id="search" placeholder="Search by name...">
+      <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+      </label>`;
+
+document.querySelector("header").appendChild(searchBar);
+
+
+
+
